@@ -11,8 +11,10 @@ const generateLayout = (model) => {
 
 const generateDom = (model) => {
     return model.map((cell, index) => (
-        <div key={index} style={{borderStyle: 'solid', borderColor: 'black', borderWidth: cell.borderWidth, textAlign:'center'}}>
-        </div>
+        <div
+            key={index} 
+            style={{borderStyle: 'solid', borderColor: 'black', borderWidth: cell.borderWidth, textAlign:'center'}}
+        />
     ))
 }
 
@@ -29,6 +31,7 @@ const GridLayout = ({model, cols = 12}) => {
             isDraggable={false}
             isResizable={false}
             cols={cols}
+            margin={[0,0]}
         >
         {generateDom(model ?? defaultModel)}
         </ReactGridLayout>
