@@ -40,7 +40,7 @@ export class Grid {
         return this.grid[row][col]
     }
 
-    getRandomCell() {
+    randomCell() {
         const row = Math.floor(Math.random() * this.rows)
         const col = Math.floor(Math.random() * this.grid[row].length)
         return this.getCell(row, col)
@@ -48,5 +48,19 @@ export class Grid {
 
     getSize() {
         return this.rows * this.columns
+    }
+
+    *eachRow() {
+        for (const row of this.grid){
+            yield row
+        }
+    }
+
+    *eachCell() {
+        for (const row of this.eachRow()) {
+            for (const cell of row) {
+                yield cell
+            }
+        }
     }
 }

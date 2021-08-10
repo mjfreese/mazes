@@ -16,46 +16,6 @@ export class Cell {
         this.links = links ?? []
     }
 
-    // get row() {
-    //     return this.row
-    // }
-
-    // get column() { 
-    //     return this.column
-    // }
-
-    // get north() {
-    //     return this.north
-    // }
-
-    // set north(cell) {
-    //     this.north = cell
-    // }
-
-    // get south() {
-    //     return this.south
-    // }
-
-    // set south(cell) {
-    //     this.south = cell
-    // }
-
-    // get east() {
-    //     return this.east
-    // }
-
-    // set east(cell) {
-    //     this.east = cell
-    // }
-
-    // get west() {
-    //     return this.west
-    // }
-
-    // set west(cell) {
-    //     this.west = cell
-    // }
-
     *getLinks() {
         for (const link of this.links) {
             yield link;
