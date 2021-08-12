@@ -1,3 +1,5 @@
+import { sides } from "../Layout/CellUtilities"
+
 export class Cell {
     row
     column
@@ -49,5 +51,22 @@ export class Cell {
             list.push(this.west)
 
         return list
+    }
+
+    openWalls() {
+        const list = []
+
+        for (const link of this.getLinks()) {
+            if (link === this.north)
+                list.push(sides.top)
+            else if (link === this.south)
+                list.push(sides.bottom)
+            else if (link === this.east)
+                list.push(sides.right)
+            else if (link === this.west)
+                list.push(sides.left)
+        }
+
+        return list.reduce((acc, cv) => acc | cv)
     }
 }

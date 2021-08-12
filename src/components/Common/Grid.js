@@ -9,26 +9,28 @@ export class Grid {
     }
 
     prepareGrid() {
-        const rows = new Array(this.rows)
-        rows.forEach((row, rowIdx) => {
-            const cells = new Array(this.columns)
-            cells.forEach((cell, colIdx) => cell = new Cell(rowIdx, colIdx))
-            row = cells
-        })
+        const rows = []
+        for (let i = 0; i < this.rows; i++) {
+            const row = []
+            for (let j = 0; j < this.columns; j++) {
+                row.push(new Cell(i, j))
+            }
+            rows.push(row)
+        }
 
         return rows
     }
 
-    prepareCells(cells) {
-        cells.forEach((cell) => {
+    prepareCells() {
+        for (const cell of this.eachCell()) {
             const row = cell.row
-            const col = cell.col
+            const col = cell.column
 
             cell.north = this.getCell(row - 1, col)
             cell.south = this.getCell(row + 1, col)
             cell.east = this.getCell(row, col + 1)
             cell.west = this.getCell(row, col - 1)
-        })
+        }
     }
 
     getCell(row, col) {

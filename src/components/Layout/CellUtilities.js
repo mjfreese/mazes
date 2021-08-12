@@ -6,7 +6,7 @@ export const sides = {
     getBorderOnSide: (openSides, test) => (openSides & test) === test ? 0 : '1px' 
 }
 
-export const createCell = (x, y, openSides) => {
+export const createDisplayCell = (x, y, openSides) => {
     return {
         x, 
         y, 
