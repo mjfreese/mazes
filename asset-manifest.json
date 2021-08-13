@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/mazes/static/css/main.a617e044.chunk.css",
-    "main.js": "/mazes/static/js/main.4ac6514a.chunk.js",
-    "main.js.map": "/mazes/static/js/main.4ac6514a.chunk.js.map",
+    "main.js": "/mazes/static/js/main.f71ba804.chunk.js",
+    "main.js.map": "/mazes/static/js/main.f71ba804.chunk.js.map",
     "runtime-main.js": "/mazes/static/js/runtime-main.39661dc0.js",
     "runtime-main.js.map": "/mazes/static/js/runtime-main.39661dc0.js.map",
-    "static/js/2.036abb6b.chunk.js": "/mazes/static/js/2.036abb6b.chunk.js",
-    "static/js/2.036abb6b.chunk.js.map": "/mazes/static/js/2.036abb6b.chunk.js.map",
+    "static/js/2.addce019.chunk.js": "/mazes/static/js/2.addce019.chunk.js",
+    "static/js/2.addce019.chunk.js.map": "/mazes/static/js/2.addce019.chunk.js.map",
     "static/js/3.13349482.chunk.js": "/mazes/static/js/3.13349482.chunk.js",
     "static/js/3.13349482.chunk.js.map": "/mazes/static/js/3.13349482.chunk.js.map",
     "index.html": "/mazes/index.html",
     "static/css/main.a617e044.chunk.css.map": "/mazes/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.036abb6b.chunk.js.LICENSE.txt": "/mazes/static/js/2.036abb6b.chunk.js.LICENSE.txt"
+    "static/js/2.addce019.chunk.js.LICENSE.txt": "/mazes/static/js/2.addce019.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39661dc0.js",
-    "static/js/2.036abb6b.chunk.js",
+    "static/js/2.addce019.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.4ac6514a.chunk.js"
+    "static/js/main.f71ba804.chunk.js"
   ]
 }
