@@ -13,5 +13,9 @@ export const createBinaryTree = (grid) => {
 }
 
 export const sample = (list) => {
-    return list[Math.floor(Math.random() * list.length)]
+    return list[randomNumber(list.length)]
+}
+
+export const randomNumber = (mult) => {
+    return Math.floor(Math.random() * mult)
 }

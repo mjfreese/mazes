@@ -1,3 +1,4 @@
+import { randomNumber } from '../BinaryTree/BinaryTree'
 import { Cell } from './Cell'
 
 export class Grid {
@@ -43,8 +44,8 @@ export class Grid {
     }
 
     randomCell() {
-        const row = Math.floor(Math.random() * this.rows)
-        const col = Math.floor(Math.random() * this.grid[row].length)
+        const row = randomNumber(this.rows)
+        const col = randomNumber(this.grid[row].length)
         return this.getCell(row, col)
     }
 
