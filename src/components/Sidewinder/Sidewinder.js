@@ -1,6 +1,9 @@
 import { randomNumber, sample } from "../BinaryTree/BinaryTree"
 
 export const createSidewinder = (grid) => {
+    if (!grid)
+        return
+
     for (const row of grid.eachRow()) {
         let run = []
         for (const cell of row) {
