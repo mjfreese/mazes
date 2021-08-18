@@ -19,13 +19,23 @@ const GridPage = () => {
                 <Col xs={6}>
                     <InputGroup>
                         <InputGroup.Text>Rows</InputGroup.Text>
-                        <FormControl type='number' value={numRows} onChange={(ev) => setNumRows(ev.target.value)} />
+                        <FormControl 
+                            type='number' 
+                            value={numRows}
+                            onChange={(ev) => setNumRows(ev.target.value)} 
+                            max={20}
+                        />
                     </InputGroup>
                 </Col>
                 <Col xs={6}>
                     <InputGroup>
                         <InputGroup.Text>Columns</InputGroup.Text>
-                        <FormControl type='number' value={numCols} onChange={(ev) => setNumCols(ev.target.value)} />
+                        <FormControl 
+                            type='number' 
+                            value={numCols} 
+                            onChange={(ev) => setNumCols(ev.target.value)} 
+                            max={20}
+                        />
                     </InputGroup>
                 </Col>
             </Row>

@@ -1,5 +1,6 @@
 import React from 'react'
 import RGL, { WidthProvider } from 'react-grid-layout'
+import useMeasure from 'react-use-measure'
 
 const ReactGridLayout = WidthProvider(RGL)
 
@@ -22,19 +23,25 @@ const onLayoutChange = (layout) => {
     
 }
 
-const GridLayout = ({model, cols = 12}) => {
+const GridLayout = ({model, cols = 4}) => {
+    
+    const [ ref, bounds ] = useMeasure()
+
     return (
-        <ReactGridLayout
-            layout={generateLayout(model ?? defaultModel)}
-            onLayoutChange={onLayoutChange}
-            className='layout'
-            isDraggable={false}
-            isResizable={false}
-            cols={cols}
-            margin={[0,0]}
-        >
-        {generateDom(model ?? defaultModel)}
-        </ReactGridLayout>
+        <div ref={ref}>
+            <ReactGridLayout
+                layout={generateLayout(model ?? defaultModel)}
+                onLayoutChange={onLayoutChange}
+                className='layout'
+                isDraggable={false}
+                isResizable={false}
+                cols={cols}
+                margin={[0,0]}
+                rowHeight={bounds.width / cols}
+            >
+                {generateDom(model ?? defaultModel)}
+            </ReactGridLayout>
+        </div>
     )
 }
 

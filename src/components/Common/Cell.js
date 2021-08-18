@@ -67,6 +67,9 @@ export class Cell {
                 list.push(sides.left)
         }
 
+        if (list.length < 1)
+            return []
+
         return list.reduce((acc, cv) => acc | cv)
     }
 }
