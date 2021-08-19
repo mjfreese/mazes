@@ -15,7 +15,9 @@ const generateDom = (model) => {
         <div
             key={index} 
             style={{borderStyle: 'solid', borderColor: 'black', borderWidth: cell.borderWidth, textAlign:'center'}}
-        />
+        >
+            {cell.contents}
+        </div>
     ))
 }
 

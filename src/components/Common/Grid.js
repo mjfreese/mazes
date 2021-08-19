@@ -66,4 +66,8 @@ export class Grid {
             }
         }
     }
+
+    contentsOfCell(cell) {
+        return ''
+    }
 }

@@ -1,4 +1,5 @@
 import { sides } from "../Layout/CellUtilities"
+import { Distances } from "./Distances"
 
 export class Cell {
     row
@@ -71,5 +72,27 @@ export class Cell {
             return []
 
         return list.reduce((acc, cv) => acc | cv)
+    }
+
+    distances() {
+        const distances = new Distances(this)
+        let frontier = [ this ]
+
+        while(frontier.length > 0) {
+            const newFrontier = []
+            for (const cell of frontier) {
+                for (const linked of cell.links) {
+                    if (distances.visitedCell(linked))
+                        continue
+                    
+                    distances.addCell(linked, distances.getDistance(cell) + 1)
+                    newFrontier.push(linked)
+                }
+            }
+
+            frontier = newFrontier
+        }
+
+        return distances
     }
 }
