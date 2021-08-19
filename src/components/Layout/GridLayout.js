@@ -1,6 +1,5 @@
 import React from 'react'
 import RGL, { WidthProvider } from 'react-grid-layout'
-import useMeasure from 'react-use-measure'
 
 const ReactGridLayout = WidthProvider(RGL)
 
