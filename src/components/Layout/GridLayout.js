@@ -14,7 +14,7 @@ const generateDom = (model) => {
     return model.map((cell, index) => (
         <div
             key={index} 
-            style={{borderStyle: 'solid', borderColor: 'black', borderWidth: cell.borderWidth, textAlign:'center'}}
+            style={{borderStyle: 'solid', borderColor: 'black', borderWidth: cell.borderWidth, textAlign:'center', background: cell.background}}
         >
             {cell.contents}
         </div>

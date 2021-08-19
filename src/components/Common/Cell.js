@@ -1,4 +1,4 @@
-import { sides } from "../Layout/CellUtilities"
+import { rgbToHex, sides } from "../Layout/CellUtilities"
 import { Distances } from "./Distances"
 
 export class Cell {
@@ -8,6 +8,7 @@ export class Cell {
     south
     east
     west
+    background = '#ffffff'
 
     constructor(row, column, ...links) {
         this.row = row
@@ -94,5 +95,20 @@ export class Cell {
         }
 
         return distances
+    }
+
+    setEntrance() {
+        this.background = '#00ff00'
+    }
+
+    setExit() {
+        this.background = '#ff0000'
+    }
+
+    setPath(currentDistance, maxDistance) {
+        const red = Math.floor(255 * currentDistance / maxDistance)
+        const green = Math.floor(255 * (maxDistance - currentDistance) / maxDistance)
+        console.log(red, green)
+        this.background = rgbToHex(red, green, 0)
     }
 }
