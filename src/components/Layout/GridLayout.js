@@ -27,10 +27,8 @@ const onLayoutChange = (layout) => {
 
 const GridLayout = ({model, cols = 4}) => {
     
-    const [ ref, bounds ] = useMeasure()
-
     return (
-        <div ref={ref}>
+        <div style={{width: '500px'}}>
             <ReactGridLayout
                 layout={generateLayout(model ?? defaultModel)}
                 onLayoutChange={onLayoutChange}
@@ -39,7 +37,7 @@ const GridLayout = ({model, cols = 4}) => {
                 isResizable={false}
                 cols={cols}
                 margin={[0,0]}
-                rowHeight={bounds.width / cols}
+                rowHeight={500 / cols}
             >
                 {generateDom(model ?? defaultModel)}
             </ReactGridLayout>

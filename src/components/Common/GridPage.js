@@ -97,15 +97,17 @@ const GridPage = () => {
                         {
                             modelGenerators.map((gen, index) => (
                                 <Tab key={index} eventKey={gen.name} title={gen.name}>
-                                {
-                                    <gen.page 
-                                        rows={parseInt(numRows)} 
-                                        cols={parseInt(numCols)} 
-                                        showDistances={showDistances}
-                                        entrance={[entranceRow, entranceCol]}
-                                        exit={[exitRow, exitCol]}
-                                    />
-                                }
+                                    <center>
+                                    {
+                                        <gen.page 
+                                            rows={parseInt(numRows)} 
+                                            cols={parseInt(numCols)} 
+                                            showDistances={showDistances}
+                                            entrance={[entranceRow, entranceCol]}
+                                            exit={[exitRow, exitCol]}
+                                        />
+                                    }
+                                    </center>
                                 </Tab>
                             ))
                         }
