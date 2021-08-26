@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mazes/static/css/main.a617e044.chunk.css",
-    "main.js": "/mazes/static/js/main.c22df6c0.chunk.js",
-    "main.js.map": "/mazes/static/js/main.c22df6c0.chunk.js.map",
+    "main.js": "/mazes/static/js/main.1a76fa21.chunk.js",
+    "main.js.map": "/mazes/static/js/main.1a76fa21.chunk.js.map",
     "runtime-main.js": "/mazes/static/js/runtime-main.0b4abd42.js",
     "runtime-main.js.map": "/mazes/static/js/runtime-main.0b4abd42.js.map",
     "static/js/2.9b97325d.chunk.js": "/mazes/static/js/2.9b97325d.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.0b4abd42.js",
     "static/js/2.9b97325d.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.c22df6c0.chunk.js"
+    "static/js/main.1a76fa21.chunk.js"
   ]
 }
