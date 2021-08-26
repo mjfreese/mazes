@@ -37,7 +37,7 @@ export class Grid {
     getCell(row, col) {
         if (row >= this.rows || row < 0)
             return null
-        if (col < 0 || col >= this.grid[row].length)
+        if (!this.grid[row] || col < 0 || col >= this.grid[row].length)
             return null
         
         return this.grid[row][col]

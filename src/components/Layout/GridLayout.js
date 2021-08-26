@@ -34,7 +34,7 @@ const GridLayout = ({model, cols = 4}) => {
                 className='layout'
                 isDraggable={false}
                 isResizable={false}
-                cols={cols}
+                cols={cols || 0}
                 margin={[0,0]}
                 rowHeight={500 / cols}
             >

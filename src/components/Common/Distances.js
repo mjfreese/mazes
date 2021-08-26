@@ -76,7 +76,6 @@ export class Distances {
         for (const key of this.keys) {
             const cell = this.cellsByCoord[key]
             const distance = this.getDistance(cell)
-            console.log(cell, distance)
             if (distance > maxDistance) {
                 maxCell = cell
                 maxDistance = distance
