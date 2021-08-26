@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Col, FormControl, Row, Tab, Tabs, InputGroup, FormCheck, Form } from 'react-bootstrap'
 
 import { createBinaryTree } from '../BinaryTree/BinaryTree'
-import { createDisplayCell } from '../Layout/CellUtilities'
 import GridLayout from '../Layout/GridLayout'
 import { createSidewinder } from '../Sidewinder/Sidewinder'
 import { DistanceGrid } from './DistanceGrid'
@@ -12,55 +11,9 @@ const modelGenerators = [
     { name: 'Sidewinder', generator: createSidewinder },
 ]
 
-const getSolution = (showSolution, showLongestPath, enter, exit, grid) => {
-    console.log(exit)
-    if (showSolution)
-    {
-        const start = grid.getCell(...enter)
-
-        if (!start)
-            return
-
-        const distances = start.distances()
-        grid.distances = distances.pathTo(grid.getCell(...exit))
-    }
-
-    else if (showLongestPath)
-    {
-        const start = grid.getCell(0, 0)
-
-        if (!start)
-            return
-
-        const distances = start.distances()
-
-        const [newStart, /*UNUSED*/] = distances.max()
-        const newDistances = newStart.distances()
-
-        const [goal, /*UNUSED*/] = newDistances.max()
-        grid.distances = newDistances.pathTo(goal)
-    }
-}
-
-const generateModel = (rows, cols, showSolution, enter, exit, showLongestPath, modelGenerator) => {
-    const model = []
+const generateModel = (rows, cols, modelGenerator) => {
     const grid = new DistanceGrid(rows, cols)
-    const binaryTree = modelGenerator(grid)
-
-    if (showSolution || showLongestPath) {
-        grid.distances = getSolution(showSolution, showLongestPath, enter, exit, grid)
-    }
-
-    for (const cell of binaryTree.eachCell()) {
-        model.push(createDisplayCell(
-            cell.column,
-            cell.row, 
-            cell.openWalls(), 
-            grid.contentsOfCell(cell),
-            cell.background))
-    }
-
-    return model
+    return modelGenerator(grid)
 }
 
 const getNewTargetCellCoord = (row, col) => {
@@ -188,14 +141,14 @@ const GridPage = () => {
                                     <center>
                                     {
                                         <GridLayout
-                                            model={generateModel(
+                                            grid={generateModel(
                                                 numRows, 
-                                                numCols, 
-                                                showSolution, 
-                                                entrance, 
-                                                exit, 
-                                                showLongestPath, 
-                                                gen.generator)} 
+                                                numCols,
+                                                gen.generator)}
+                                            enter={entrance}
+                                            exit={exit}
+                                            showLongestPath={showLongestPath}
+                                            showSolution={showSolution}
                                             cols={numCols}
                                         />
                                     }

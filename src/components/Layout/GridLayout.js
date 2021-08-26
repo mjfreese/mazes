@@ -1,9 +1,8 @@
 import React from 'react'
 import RGL, { WidthProvider } from 'react-grid-layout'
+import { createDisplayCell } from './CellUtilities'
 
 const ReactGridLayout = WidthProvider(RGL)
-
-const defaultModel = [{x: 0, y: 0, borderWidth: '1px'}, {x: 1, y: 0, borderWidth: '1px'}, {x: 12, y: 0, borderWidth: '1px'}]
 
 const generateLayout = (model) => {
     return model.map((cell, index) => ({x: cell.x, y: cell.y, w: 1, h: 1, i: `${index}`}))
@@ -24,12 +23,60 @@ const onLayoutChange = (layout) => {
     
 }
 
-const GridLayout = ({model, cols = 4}) => {
+const getSolution = (showSolution, showLongestPath, enter, exit, grid) => {
+    if (showSolution)
+    {
+        const start = grid.getCell(...enter)
+
+        if (!start)
+            return
+
+        const distances = start.distances()
+        grid.distances = distances.pathTo(grid.getCell(...exit))
+    }
+
+    else if (showLongestPath)
+    {
+        const start = grid.getCell(0, 0)
+
+        if (!start)
+            return
+
+        const distances = start.distances()
+
+        const [newStart, /*UNUSED*/] = distances.max()
+        const newDistances = newStart.distances()
+
+        const [goal, /*UNUSED*/] = newDistances.max()
+        grid.distances = newDistances.pathTo(goal)
+    }
+}
+
+const createModel = (showSolution, showLongestPath, enter, exit, grid) => {
+    if (showSolution || showLongestPath) {
+        getSolution(showSolution, showLongestPath, enter, exit, grid)
+    }
+
+    const model = []
+    for (const cell of grid.eachCell()) {
+        model.push(createDisplayCell(
+            cell.column,
+            cell.row, 
+            cell.openWalls(), 
+            grid.contentsOfCell(cell),
+            cell.background))
+    }
+    return model
+}
+
+const GridLayout = ({grid, showSolution, showLongestPath, enter, exit, cols = 4}) => {
     
+    const model = createModel(showSolution, showLongestPath, enter, exit, grid)
+
     return (
         <div style={{width: '500px'}}>
             <ReactGridLayout
-                layout={generateLayout(model ?? defaultModel)}
+                layout={generateLayout(model)}
                 onLayoutChange={onLayoutChange}
                 className='layout'
                 isDraggable={false}
@@ -38,7 +85,7 @@ const GridLayout = ({model, cols = 4}) => {
                 margin={[0,0]}
                 rowHeight={500 / cols}
             >
-                {generateDom(model ?? defaultModel)}
+                {generateDom(model)}
             </ReactGridLayout>
         </div>
     )
