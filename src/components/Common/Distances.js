@@ -2,12 +2,14 @@ export class Distances {
     root
     distancesByCoord = []
     cellsByCoord = []
+    keys = []
     
     constructor(root) {
         this.root = root
         const accessor = this.getCellAccessor(root)
         this.distancesByCoord[accessor] = 0
         this.cellsByCoord[accessor] = root
+        this.keys.push(accessor)
     }
 
     getCellAccessor(cell) {
@@ -24,6 +26,7 @@ export class Distances {
         const accessor = this.getCellAccessor(cell)
         this.distancesByCoord[accessor] = distance
         this.cellsByCoord[accessor] = cell
+        this.keys.push(accessor)
     }
 
     getCellKeys() {
@@ -64,5 +67,22 @@ export class Distances {
         }
 
         return breadCrumbs
+    }
+
+    max() {
+        let maxDistance = 0
+        let maxCell = this.root
+
+        for (const key of this.keys) {
+            const cell = this.cellsByCoord[key]
+            const distance = this.getDistance(cell)
+            console.log(cell, distance)
+            if (distance > maxDistance) {
+                maxCell = cell
+                maxDistance = distance
+            }
+        }
+
+        return [maxCell, maxDistance]
     }
 }

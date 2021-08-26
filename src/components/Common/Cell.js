@@ -108,7 +108,6 @@ export class Cell {
     setPath(currentDistance, maxDistance) {
         const red = Math.floor(255 * currentDistance / maxDistance)
         const green = Math.floor(255 * (maxDistance - currentDistance) / maxDistance)
-        console.log(red, green)
         this.background = rgbToHex(red, green, 0)
     }
 }
