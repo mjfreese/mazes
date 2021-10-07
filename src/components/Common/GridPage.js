@@ -29,6 +29,7 @@ const GridPage = () => {
     const [entrance, setEntrance] = useState([0,0])
     const [exit, setExit] = useState([3, 3])
     const [showLongestPath, setShowLongestPath] = useState(false)
+    const [showTexture, setShowTexture] = useState(false)
 
     return (
         <div>
@@ -63,9 +64,10 @@ const GridPage = () => {
                             label='Show Solution'
                             name='slnGroup'
                             checked={showSolution}
-                            onChange={(ev) => {
+                            onChange={() => {
                                 setShowSolution(true)
                                 setShowLongestPath(false)
+                                setShowTexture(false)
                             }}
                         />
                         <FormCheck
@@ -74,9 +76,10 @@ const GridPage = () => {
                             label='Show Longest Path'
                             name='slnGroup'
                             checked={showLongestPath}
-                            onChange={(ev) => {
+                            onChange={() => {
                                 setShowSolution(false)
                                 setShowLongestPath(true)
+                                setShowTexture(false)
                             }}
                         />
                         <FormCheck
@@ -84,10 +87,23 @@ const GridPage = () => {
                             type='radio'
                             label='None'
                             name='slnGroup'
-                            checked={!showLongestPath && !showSolution}
-                            onChange={(ev) => {
+                            checked={!showLongestPath && !showSolution && !showTexture}
+                            onChange={() => {
                                 setShowLongestPath(false)
                                 setShowSolution(false)
+                                setShowTexture(false)
+                            }}
+                        />
+                        <FormCheck
+                            inline
+                            type='radio'
+                            label='Show Texture'
+                            name='slnGroup'
+                            checked={showTexture}
+                            onChange={() => {
+                                setShowSolution(false)
+                                setShowLongestPath(false)
+                                setShowTexture(true)
                             }}
                         />
                     </Form>
@@ -150,6 +166,7 @@ const GridPage = () => {
                                             exit={exit}
                                             showLongestPath={showLongestPath}
                                             showSolution={showSolution}
+                                            showTexture={showTexture}
                                             cols={numCols}
                                         />
                                     }

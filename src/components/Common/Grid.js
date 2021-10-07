@@ -77,4 +77,10 @@ export class Grid {
     contentsOfCell(cell) {
         return ''
     }
+
+    colorCells() {
+        for (const cell of this.eachCell()) {
+            cell.background = '#FFFFFF'
+        }
+    }
 }

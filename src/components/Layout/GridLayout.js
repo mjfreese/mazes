@@ -23,7 +23,7 @@ const onLayoutChange = (layout) => {
     
 }
 
-const getSolution = (showSolution, showLongestPath, enter, exit, grid) => {
+const getSolution = (showSolution, showLongestPath, showTexture, enter, exit, grid) => {
     if (showSolution)
     {
         const start = grid.getCell(...enter)
@@ -50,11 +50,21 @@ const getSolution = (showSolution, showLongestPath, enter, exit, grid) => {
         const [goal, /*UNUSED*/] = newDistances.max()
         grid.distances = newDistances.pathTo(goal)
     }
+
+    else if (showTexture) {
+        const start = grid.getCell(...enter)
+
+        if (!start)
+            return
+
+        grid.distances = start.distances()
+        grid.colorCells()
+    }
 }
 
-const createModel = (showSolution, showLongestPath, enter, exit, grid) => {
-    if (showSolution || showLongestPath) {
-        getSolution(showSolution, showLongestPath, enter, exit, grid)
+const createModel = (showSolution, showLongestPath, showTexture, enter, exit, grid) => {
+    if (showSolution || showLongestPath || showTexture) {
+        getSolution(showSolution, showLongestPath, showTexture, enter, exit, grid)
     }
 
     const model = []
@@ -69,9 +79,8 @@ const createModel = (showSolution, showLongestPath, enter, exit, grid) => {
     return model
 }
 
-const GridLayout = ({grid, showSolution, showLongestPath, enter, exit, cols = 4}) => {
-    
-    const model = createModel(showSolution, showLongestPath, enter, exit, grid)
+const GridLayout = ({grid, showSolution, showLongestPath, showTexture, enter, exit, cols = 4}) => {
+    const model = createModel(showSolution, showLongestPath, showTexture, enter, exit, grid)
 
     return (
         <div style={{width: '500px'}}>
