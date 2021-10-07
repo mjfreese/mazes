@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Col, FormControl, Row, Tab, Tabs, InputGroup, FormCheck, Form } from 'react-bootstrap'
 
+import { createAldousBroder } from '../AldousBroder/AldousBroder'
 import { createBinaryTree } from '../BinaryTree/BinaryTree'
 import GridLayout from '../Layout/GridLayout'
 import { createSidewinder } from '../Sidewinder/Sidewinder'
@@ -9,6 +10,7 @@ import { DistanceGrid } from './DistanceGrid'
 const modelGenerators = [
     { name: 'Binary Tree', generator: createBinaryTree },
     { name: 'Sidewinder', generator: createSidewinder },
+    { name: 'Aldous-Broder', generator: createAldousBroder },
 ]
 
 const generateModel = (rows, cols, modelGenerator) => {
@@ -17,7 +19,6 @@ const generateModel = (rows, cols, modelGenerator) => {
 }
 
 const getNewTargetCellCoord = (row, col) => {
-    console.log(row, col)
     return [isNaN(row) ? 0 : parseInt(row), isNaN(col) ? 0 : parseInt(col)]
 }
 

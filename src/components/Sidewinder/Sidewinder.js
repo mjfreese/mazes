@@ -1,8 +1,8 @@
-import { randomNumber, sample } from "../BinaryTree/BinaryTree"
+import { Grid, randomNumber, sample } from "../Common/Grid"
 
 export const createSidewinder = (grid) => {
     if (!grid)
-        return
+        return new Grid(4, 4)
 
     for (const row of grid.eachRow()) {
         let run = []

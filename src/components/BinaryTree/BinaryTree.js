@@ -1,4 +1,4 @@
-import { Grid } from "../Common/Grid"
+import { Grid, sample } from "../Common/Grid"
 
 export const createBinaryTree = (grid) => {
     if (!grid)
@@ -15,12 +15,4 @@ export const createBinaryTree = (grid) => {
     }
 
     return grid
-}
-
-export const sample = (list) => {
-    return list[randomNumber(list.length)]
-}
-
-export const randomNumber = (mult) => {
-    return Math.floor(Math.random() * mult)
 }

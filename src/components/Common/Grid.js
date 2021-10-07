@@ -1,5 +1,12 @@
-import { randomNumber } from '../BinaryTree/BinaryTree'
 import { Cell } from './Cell'
+
+export const sample = (list) => {
+    return list[randomNumber(list.length)]
+}
+
+export const randomNumber = (mult) => {
+    return Math.floor(Math.random() * mult)
+}
 
 export class Grid {
     constructor(rows, columns) {
