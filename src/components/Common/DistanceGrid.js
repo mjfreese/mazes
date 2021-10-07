@@ -13,7 +13,6 @@ export class DistanceGrid extends Grid {
     colorCells() {
         const maxDistance = this.distances.max()[1]
         for (const cell of this.eachCell()) {
-            console.log(cell)
             const distance = this.distances.getDistance(cell)
             
             const green = Math.max(0, Math.floor(255 * (maxDistance - distance) / maxDistance))
