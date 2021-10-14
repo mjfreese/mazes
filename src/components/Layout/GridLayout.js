@@ -12,7 +12,7 @@ const generateDom = (model) => {
     return model.map((cell, index) => (
         <div
             key={index} 
-            style={{borderStyle: 'solid', borderColor: 'black', borderWidth: cell.borderWidth, textAlign:'center', background: cell.background}}
+            style={{borderStyle: 'solid', borderColor: 'black', borderWidth: cell.borderWidth, textAlign:'center', background: cell.background, color: cell.textColor}}
         >
             {cell.contents}
         </div>
@@ -74,7 +74,8 @@ const createModel = (showSolution, showLongestPath, showTexture, enter, exit, gr
             cell.row, 
             cell.openWalls(), 
             grid.contentsOfCell(cell),
-            cell.background))
+            cell.background,
+            cell.textColor))
     }
     return model
 }

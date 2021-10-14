@@ -17,6 +17,8 @@ export class DistanceGrid extends Grid {
             
             const green = Math.max(0, Math.floor(255 * (maxDistance - distance) / maxDistance))
             cell.background = rgbToHex(0, green, 0)
+            const textColor = green > 255 / 3 ? 0 : 255
+            cell.textColor = rgbToHex(textColor, textColor, textColor)
         }
     }
 }

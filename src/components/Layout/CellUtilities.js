@@ -6,13 +6,14 @@ export const sides = {
     getBorderOnSide: (openSides, test) => (openSides & test) === test ? 0 : '1px' 
 }
 
-export const createDisplayCell = (x, y, openSides, contents = '', background = '#ffffff') => {
+export const createDisplayCell = (x, y, openSides, contents = '', background = '#ffffff', textColor = '#000000') => {
     return {
         x, 
         y, 
         borderWidth: `${sides.getBorderOnSide(openSides, sides.top)} ${sides.getBorderOnSide(openSides, sides.right)} ${sides.getBorderOnSide(openSides, sides.bottom)} ${sides.getBorderOnSide(openSides, sides.left)}`,
         contents,
-        background
+        background,
+        textColor,
     }
 }
 
