@@ -5,12 +5,14 @@ import { createAldousBroder } from '../AldousBroder/AldousBroder'
 import { createBinaryTree } from '../BinaryTree/BinaryTree'
 import GridLayout from '../Layout/GridLayout'
 import { createSidewinder } from '../Sidewinder/Sidewinder'
+import { createWilson } from '../Wilson/Wilson'
 import { DistanceGrid } from './DistanceGrid'
 
 const modelGenerators = [
     { name: 'Binary Tree', generator: createBinaryTree },
     { name: 'Sidewinder', generator: createSidewinder },
     { name: 'Aldous-Broder', generator: createAldousBroder },
+    { name: 'Wilson', generator: createWilson },
 ]
 
 const generateModel = (rows, cols, modelGenerator) => {
