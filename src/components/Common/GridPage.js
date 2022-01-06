@@ -12,7 +12,7 @@ const modelGenerators = [
     { name: 'Binary Tree', generator: createBinaryTree },
     { name: 'Sidewinder', generator: createSidewinder },
     { name: 'Aldous-Broder', generator: createAldousBroder },
-    //{ name: 'Wilson', generator: createWilsons },
+    { name: 'Wilson', generator: createWilsons },
 ]
 
 const generateModel = (rows, cols, modelGenerator) => {
