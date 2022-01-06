@@ -23,20 +23,19 @@ export const createWilsons = (grid) => {
 
         while (cellIsUnvisited(unvisited, cell)) {
             cell = sample(cell.neighbors())
-            console.log(cell, path)
             const position = path.indexOf(cell)
-            if (position)
+            if (position !== -1)
                 path = path.slice(position)
             else 
                 path.push(cell)
         }
 
-        for (let i = 0; i < path.length - 2; i++) {
+        for (let i = 0; i < path.length - 1; i++) {
             path[i].link(path[i + 1])
             unvisited = unvisited.filter(c => !c.equals(path[i]))
         }
 
-        //unvisited = unvisited.filter(c => !c.equals(cell))
+        unvisited = unvisited.filter(c => !c.equals(cell))
     }
 
     return grid
