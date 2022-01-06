@@ -110,4 +110,8 @@ export class Cell {
         const green = Math.floor(255 * (maxDistance - currentDistance) / maxDistance)
         this.background = rgbToHex(red, green, 0)
     }
+
+    equals(other) {
+        return other.row === this.row && other.column === this.column
+    }
 }

@@ -5,14 +5,14 @@ import { createAldousBroder } from '../AldousBroder/AldousBroder'
 import { createBinaryTree } from '../BinaryTree/BinaryTree'
 import GridLayout from '../Layout/GridLayout'
 import { createSidewinder } from '../Sidewinder/Sidewinder'
-import { createWilson } from '../Wilson/Wilson'
+import { createWilsons } from '../Wilsons/Wilsons'
 import { DistanceGrid } from './DistanceGrid'
 
 const modelGenerators = [
     { name: 'Binary Tree', generator: createBinaryTree },
     { name: 'Sidewinder', generator: createSidewinder },
     { name: 'Aldous-Broder', generator: createAldousBroder },
-    { name: 'Wilson', generator: createWilson },
+    //{ name: 'Wilson', generator: createWilsons },
 ]
 
 const generateModel = (rows, cols, modelGenerator) => {
@@ -156,7 +156,7 @@ const GridPage = () => {
                     <Tabs defaultActiveKey={modelGenerators[0].name} transition={false}>
                         {
                             modelGenerators.map((gen, index) => (
-                                <Tab key={index} eventKey={gen.name} title={gen.name}>
+                                <Tab key={index} eventKey={gen.name} title={gen.name} unmountOnExit>
                                     <center>
                                     {
                                         <GridLayout
