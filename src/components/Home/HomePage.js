@@ -1,9 +1,6 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 import GridPage from '../Common/GridPage'
 
-const HomePage = () => {
-    return (<GridPage />)
-}
+const HomePage = () => (<GridPage />)
 
-export default withRouter(HomePage)
+export default HomePage
